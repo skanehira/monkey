@@ -154,7 +154,7 @@ func (s *String) Inspect() string {
 
 func (s *String) HashKey() HashKey {
 	h := fnv.New64a()
-	h.Write([]byte(s.Value))
+	_, _ = h.Write([]byte(s.Value))
 	return HashKey{Type: s.Type(), Value: h.Sum64()}
 }
 

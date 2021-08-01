@@ -624,7 +624,7 @@ func TestCallExpressionParsing(t *testing.T) {
 	testIdentifier(t, exp.Function, "add")
 
 	if len(exp.Arguments) != 3 {
-
+		t.Fatalf("exp.Arguments got:%d, want:%d", len(exp.Arguments), 3)
 	}
 
 	testLiteralExpression(t, exp.Arguments[0], 1)
@@ -656,7 +656,7 @@ func TestParsingArrayLiterals(t *testing.T) {
 	p := New(l)
 	program := p.ParseProgram()
 	checkParserErrors(t, p)
-	stmt, ok := program.Statements[0].(*ast.ExpressionStatement)
+	stmt := program.Statements[0].(*ast.ExpressionStatement)
 	array, ok := stmt.Expression.(*ast.ArrayLiteral)
 	if !ok {
 		t.Fatalf("exp not ast.ArrayLiteral. got=%T", stmt.Expression)
@@ -675,7 +675,7 @@ func TestParsingIndexExpression(t *testing.T) {
 	p := New(l)
 	program := p.ParseProgram()
 	checkParserErrors(t, p)
-	stmt, ok := program.Statements[0].(*ast.ExpressionStatement)
+	stmt := program.Statements[0].(*ast.ExpressionStatement)
 	indexExp, ok := stmt.Expression.(*ast.IndexExpression)
 	if !ok {
 		t.Fatalf("exp not *ast.IndexExpression. got=%T", stmt.Expression)

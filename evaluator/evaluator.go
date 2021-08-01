@@ -139,6 +139,7 @@ func unwrapReturnValue(obj object.Object) object.Object {
 }
 
 func evalExpressions(exps []ast.Expression, env *object.Environment) []object.Object {
+	//nolint
 	var result []object.Object
 	for _, e := range exps {
 		evaluated := Eval(e, env)

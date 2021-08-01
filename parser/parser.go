@@ -110,10 +110,6 @@ func (p *Parser) registerInfix(t token.TokenType, fn infixParseFn) {
 	p.infixParseFns[t] = fn
 }
 
-func (p *Parser) infixPrefix(tokenType token.TokenType, fn infixParseFn) {
-	p.infixParseFns[tokenType] = fn
-}
-
 func (p *Parser) parseIdentifier() ast.Expression {
 	return &ast.Identifier{
 		Token: p.curToken,

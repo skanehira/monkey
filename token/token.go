@@ -25,7 +25,8 @@ const (
 	LT = "<"
 	GT = ">"
 
-	EQ     = "=="
+	EQ = "=="
+	//nolint
 	NOT_EQ = "!="
 
 	COMMA     = ","
