@@ -34,7 +34,7 @@ type vmTestCase struct {
 	expected interface{}
 }
 
-func runVmTests(t *testint.T, tests []vmTestCase) {
+func runVmTests(t *testing.T, tests []vmTestCase) {
 	t.Helper()
 
 	for _, tt := range tests {
@@ -46,8 +46,8 @@ func runVmTests(t *testint.T, tests []vmTestCase) {
 			t.Fatalf("compiler error: %s", err)
 		}
 
-		vm := New(comp.Bytecocde())
-		err := vm.Run()
+		vm := New(comp.Bytecode())
+		err = vm.Run()
 		if err != nil {
 			t.Fatalf("vm error: %s", err)
 		}
