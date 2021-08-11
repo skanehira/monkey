@@ -75,7 +75,5 @@ func TestReadOperands(t *testing.T) {
 				t.Errorf("operand wrong. want=%d, got=%d", want, operandsRead[i])
 			}
 		}
-
 	}
-
 }
