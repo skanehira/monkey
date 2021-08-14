@@ -198,7 +198,7 @@ func (c *Compiler) Compile(node ast.Node) error {
 		}
 
 		sort.Slice(keys, func(i, j int) bool {
-			return keys[i].String() < keys[i].String()
+			return keys[i].String() < keys[j].String()
 		})
 
 		for _, k := range keys {
